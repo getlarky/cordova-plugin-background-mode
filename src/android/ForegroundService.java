@@ -167,6 +167,7 @@ public class ForegroundService extends Service {
             .setSmallIcon(smallIconViewId)
             .setLargeIcon(BitmapFactory.decodeResource(getApplicationContext().getResources(), getIconResId()));
 
+        int color = 0x00FFFFFF;
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             int color = 0xffe0e0e0;
 
@@ -182,9 +183,6 @@ public class ForegroundService extends Service {
             //         Log.e("BackgroundMode", settings.optString("color") + " is not a valid color");
             //     }
             // }
-        }
-        else{
-            int color = 0x00FFFFFF;
         }
         notification.setColor(color);
 
