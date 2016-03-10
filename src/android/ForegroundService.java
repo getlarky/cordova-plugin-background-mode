@@ -186,7 +186,7 @@ public class ForegroundService extends Service {
         else{
             int color = 0x00FFFFFF;
         }
-        notification.setColor(color)
+        notification.setColor(color);
 
         if (intent != null && settings.optBoolean("resume")) {
 
