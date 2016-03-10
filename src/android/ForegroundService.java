@@ -169,7 +169,7 @@ public class ForegroundService extends Service {
 
         int color = 0x00FFFFFF;
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            int color = 0xffe0e0e0;
+            color = 0xffe0e0e0;
 
             if(settings.optBoolean("isPublic") == true) {
                 notification.setVisibility(Notification.VISIBILITY_PUBLIC);
