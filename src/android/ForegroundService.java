@@ -223,7 +223,7 @@ public class ForegroundService extends Service {
         Log.e("BackgroundMode", String.valueOf(res));
         Log.e("BackgroundMode", String.valueOf(pkgName));
 
-        int resId = res.getIdentifier("icon", "drawable", pkgName);
+        int resId = res.getIdentifier(settings.optString("icon", "icon"), "drawable", pkgName);
 
         Log.e("BackgroundMode", String.valueOf(resId));
 
@@ -238,7 +238,7 @@ public class ForegroundService extends Service {
         Log.e("BackgroundMode", String.valueOf(res));
         Log.e("BackgroundMode", String.valueOf(pkgName));
 
-        int resId = res.getIdentifier("transparent", "drawable", pkgName);
+        int resId = res.getIdentifier(settings.optString("smallIcon", "icon"), "drawable", pkgName);
 
         Log.e("BackgroundMode", String.valueOf(resId));
 
