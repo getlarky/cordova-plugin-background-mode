@@ -167,24 +167,21 @@ public class ForegroundService extends Service {
             .setSmallIcon(smallIconViewId)
             .setLargeIcon(BitmapFactory.decodeResource(getApplicationContext().getResources(), getIconResId()));
 
-        int color = 0x00FFFFFF;
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            color = 0xffe0e0e0;
 
             if(settings.optBoolean("isPublic") == true) {
                 notification.setVisibility(Notification.VISIBILITY_PUBLIC);
             }
 
-            // if(!settings.optString("color").equals("")) {
-            //     try {
-            //         // notification.setColor(Color.parseColor(settings.optString("color")));
-            //         // notification.setColor(color);
-            //     } catch (Exception e) {
-            //         Log.e("BackgroundMode", settings.optString("color") + " is not a valid color");
-            //     }
-            // }
+            if(!settings.optString("color").equals("")) {
+                try {
+                    notification.setColor(Color.parseColor(settings.optString("color")));
+                    // notification.setColor(color);
+                } catch (Exception e) {
+                    Log.e("BackgroundMode", settings.optString("color") + " is not a valid color");
+                }
+            }
         }
-        notification.setColor(color);
 
         if (intent != null && settings.optBoolean("resume")) {
 
