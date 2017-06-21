@@ -33,6 +33,7 @@ import android.os.Binder;
 import android.os.Build;
 import android.os.IBinder;
 import android.os.PowerManager;
+import android.graphics.BitmapFactory;
 
 import org.json.JSONObject;
 
@@ -168,7 +169,7 @@ public class ForegroundService extends Service {
                 .setContentTitle(title)
                 .setContentText(text)
                 .setOngoing(true)
-                .setLargeIcon(getIconResId(settings))
+                .setLargeIcon(BitmapFactory.decodeResource(getApplicationContext().getResources(), getIconResId()))
                 .setSmallIcon(smallIconViewId);
 
         if (settings.optBoolean("hidden", true)) {
