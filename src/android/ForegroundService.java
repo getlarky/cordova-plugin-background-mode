@@ -169,7 +169,7 @@ public class ForegroundService extends Service {
                 .setContentTitle(title)
                 .setContentText(text)
                 .setOngoing(true)
-                .setLargeIcon(BitmapFactory.decodeResource(getApplicationContext().getResources(), getIconResId()))
+                .setLargeIcon(BitmapFactory.decodeResource(getApplicationContext().getResources(), getIconResId(settings)))
                 .setSmallIcon(smallIconViewId);
 
         if (settings.optBoolean("hidden", true)) {
