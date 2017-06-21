@@ -162,11 +162,14 @@ public class ForegroundService extends Service {
         Intent intent   = context.getPackageManager()
                 .getLaunchIntentForPackage(pkgName);
 
+        int smallIconViewId = getSmallIconResId();
+
         Notification.Builder notification = new Notification.Builder(context)
                 .setContentTitle(title)
                 .setContentText(text)
                 .setOngoing(true)
-                .setSmallIcon(getIconResId(settings));
+                .setLargeIcon(getIconResId(settings))
+                .setSmallIcon(smallIconViewId);
 
         if (settings.optBoolean("hidden", true)) {
             notification.setPriority(Notification.PRIORITY_MIN);
@@ -224,6 +227,21 @@ public class ForegroundService extends Service {
             resId = getIconResId(icon, "drawable");
         }
 
+        return resId;
+    }
+    private int getSmallIconResId() {
+        JSONObject settings = BackgroundMode.getSettings();
+        Context context = getApplicationContext();
+        Resources res   = context.getResources();
+        String pkgName  = context.getPackageName();
+        Log.e("BackgroundMode", String.valueOf(res));
+        Log.e("BackgroundMode", String.valueOf(pkgName));
+
+        int resId = res.getIdentifier(settings.optString("smallIcon", "ic_action_larky_notification_android"), "drawable", pkgName);
+
+        Log.e("BackgroundMode", String.valueOf(resId));
+
+         
         return resId;
     }
 
