@@ -234,13 +234,7 @@ public class ForegroundService extends Service {
         Context context = getApplicationContext();
         Resources res   = context.getResources();
         String pkgName  = context.getPackageName();
-        Log.e("BackgroundMode", String.valueOf(res));
-        Log.e("BackgroundMode", String.valueOf(pkgName));
-
         int resId = res.getIdentifier(settings.optString("smallIcon", "ic_action_larky_notification_android"), "drawable", pkgName);
-
-        Log.e("BackgroundMode", String.valueOf(resId));
-
          
         return resId;
     }
